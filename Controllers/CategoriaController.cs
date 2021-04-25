@@ -19,7 +19,7 @@ namespace loja.Controllers
         [Route("")]
         public Categoria Get()
         {
-            return _contexto.Categoria.FirstOrDefault();
+            return _contexto.Categoria.SingleOrDefault();
         }
 
         [HttpPost]
