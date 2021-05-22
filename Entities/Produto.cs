@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 
 namespace loja.Entities
 {
@@ -20,6 +21,7 @@ namespace loja.Entities
         [Range(1, int.MaxValue, ErrorMessage = "O atributo {0} é obrigatório e deve ser maior que 1")]
         public int CategoriaId { get; set; }
 
+        [JsonIgnore]
         public Categoria Categoria { get; set; }
     }
 }

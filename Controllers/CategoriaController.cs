@@ -28,6 +28,16 @@ namespace loja.Controllers
         }
 
         [HttpGet]
+        [Route("produtos")]
+        public ActionResult<IEnumerable<Categoria>> GetWithProducts()
+        {
+            var listaCategoria = _contexto.Categoria.Include(x => x.Produtos).AsEnumerable();
+            if (listaCategoria.Count() < 1)
+                return NotFound(new { mensagem = "Não foram encontradas categorias" });
+            return Ok(listaCategoria);
+        }
+
+        [HttpGet]
         [Route("{id}")]
         public ActionResult<Categoria> Get(int id)
         {
