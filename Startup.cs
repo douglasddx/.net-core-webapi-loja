@@ -28,8 +28,8 @@ namespace loja
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            services.AddDbContext<LojaContexto>(c => c.UseInMemoryDatabase("Database"));
-            //services.AddDbContext<LojaContexto>(c => c.UseSqlServer(Configuration.GetConnectionString("lojaConexao")));
+            //services.AddDbContext<LojaContexto>(c => c.UseInMemoryDatabase("Database"));
+            services.AddDbContext<LojaContexto>(c => c.UseSqlServer(Configuration.GetConnectionString("lojaConexao")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
